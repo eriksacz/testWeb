@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body bgcolor="red">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-1"></div>
+
+
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+
+					<div class="card-body">
+
+
+							
+							<table class="table table-hover table-sm">
+							
+								<thead>
+								<tr class="table-danger">
+									<th>Factura</th>
+									<th>Dibujo</th>
+									<th>Máquina</th>
+									<th>kilos</th>
+									<th>Rollo</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="pro: ${produccion}">
+								
+								<td><a th:text="${pro.entradaFactura.noFactura}"></a></td>
+								
+								<td><a th:text="${pro.dibujo.nomdibujo}"></a></td>
+										
+								<td><a th:text="${pro.maquina.numero}"></a></td>				
+							
+							    <td><a th:text="${pro.kilo}"></a></td>
+										
+									<td><a class="btn btn-success btn-sm"
+							th:href="@{'/formSegunda/' + ${pro.id }}"		
+										th:text="${pro.rollo}"></a></td>
+								
+								</tr>
+							</tbody>
+
+						</table>
+							
+	    				<a class="btn btn-warning btn-sm mt-4"
+								href="javascript: history.go(-1)"
+								th:text="'&laquo; Regresar'"></a>
+
+		
+
+	
+					</div>
+				</div>
+
+			</div>
+			<!-- div col -->
+
+
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<!-- <tr th:each="maqui: ${dibuFacs.FacDibuMaquis}"
+									th:if="${maqui.activo == 1}">
+									<td><a class="btn btn-success btn-xs"
+										th:href="@{/formproduccion4/} + ${maqui.id}"
+										th:text="${maqui.maquina.numero}"></a></td>
+								</tr>  -->
+</body>
+</html>

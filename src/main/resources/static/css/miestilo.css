@@ -1,0 +1,42 @@
+.mi-estilo a{
+color: #ffff;
+padding: 15px;
+border-radius: 5px;
+}
+.mi-estilo a:hover{
+background: rgba(255,255,255, .1);
+}
+.mi-estilo .disabled{
+
+}
+
+
+  
+ #confondo {
+   background-color: #0000;
+   border-radius: 5px;
+   color: black; 
+   text-align: center;
+ }
+ 
+ #sistemweb {
+ font-size: large;
+ font-style: italic;
+ font-weight: bold;
+ }
+ 
+ #card-titulo{
+ font-size: large;
+ font-style: italic;
+ font-weight: bold;
+  background-color: #CDA4E0;
+ }
+ #text-ver{
+ font-size: small;
+ font-style: italic;
+ color: #CDA4E0;
+ }
+ #navbarDropdown {
+ font-family: fantasy;
+ 
+ }

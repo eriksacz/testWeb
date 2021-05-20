@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="row">
+		<p>
+	</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+					<div class="card-body">
+
+						<form th:action="@{/formmaquidibu}"
+							th:object="${maquiDibu}" method="post">
+
+
+
+							<div class="form-row">
+
+								<div class="col-md-6 mb-1">
+									<div class="form-group">
+										<label for="maquina">Máquina</label> <select
+											class="form-control" name="maquina" th:field="*{maquina}"
+											id="maquina" required="required">
+											<option value="">-Selecciona una Máquina-</option>
+											<option th:each="maquina: ${maquinas}"
+												th:value="${maquina.id}" th:text="${maquina.numero}"
+												th:if="${maquina.activo == 1 && maquina.estado == 1}"></option>
+										</select>
+									</div>
+								</div>
+
+
+								<div class="col-md-6 mb-1">
+									<div class="form-group">
+										<label for="dibujo">Dibujo</label> <select
+											class="form-control" name="dibujo" th:field="*{dibujo}"
+											id="dibujo" required="required">
+											<option value="">-Selecciona un Dibujo-</option>
+											<option th:each="dibujo: ${dibujos}" th:value="${dibujo.id}"
+												th:text="${dibujo.nomdibujo}" th:if="${dibujo.activo == 1}"></option>
+										</select>
+									</div>
+								</div>
+
+
+								<div class="col-md-3 mb-1" style="padding-left: 45px">
+									<label>Registro</label>
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=1
+											class="form-check-input mr-2" />Alta
+										</label>
+									</div>
+
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=0
+											class="form-check-input mr-2">Baja
+										</label>
+									</div>
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('activo')}" th:errors="*{activo}"></small>
+								</div>
+
+
+								<div class="col-md-3 mb-1">
+									<label for="fecha">Fecha</label> <input type="text"
+										class="form-control" th:field="*{fecha}"
+										placeholder="dia-mes-año"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
+								</div>
+
+
+							</div>
+
+									<a class="btn btn-warning btn-xs mt-4" th:href="@{'/listmaquidibu/'}"
+								th:text="'&laquo; Regresar'"></a> 
+							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
+							<!-- // Mio -->
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

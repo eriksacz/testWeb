@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+
+	<div class="row">
+		<p>
+	</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-1"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+
+					
+					<div class="card-body">
+
+						<table class="table table-striped">
+
+							<thead>
+								<tr>
+								
+									<th>Número de Máquina</th>
+									<th>Marca</th>
+									<th>Fecha de Alta</th>
+									<th>Editar</th>
+									<th>Estado</th>
+									<th>Eliminar</th>
+								
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="maquina: ${maquinas}" th:if="${maquina.activo == 1}">
+					
+									
+									<td th:text="${maquina.numero}"></td>
+									<td th:text="${maquina.marca}"></td>
+									<td th:text="${maquina.fecha}"></td>
+												
+									<td><a class="btn btn-primary btn-sm"
+									 th:href="@{/formmaquina/} + ${maquina.id}" th:text="'Editar'"></a></td>
+									 
+									 
+									<td><span th:if="${maquina.estado &lt; 1}"> <a
+											th:href="@{/serviciomaquina/} + ${maquina.id}"
+											class="badge badge-pill badge-danger" data-toggle="tooltip"
+											data-placement="left"
+											title="Click Para Cabiar a *En Servicio*"
+											th:text="'Fuera de Servicio'"></a>
+											
+									</span> <span th:unless="${maquina.estado &lt; 1}"> <a
+										th:href="@{/fueramaquina/} + ${maquina.id}"
+											class="badge badge-pill badge-info" data-toggle="tooltip"
+											data-placement="left"
+											title="Click Para Cabiar a *Fuera de Servicio*"
+											th:text="'En Servicio'"></a>
+									</span></td>
+									 
+									 
+									 
+									<td><a class="btn btn-danger btn-sm"
+									th:href="@{/eliminarmaquina/} + ${maquina.id}" th:text="'Eliminar'"
+										onclick="return confirm('¿Estas seguro que quieres eliminar?')"></a>
+									</td>
+						 
+								</tr>
+							</tbody>
+
+						</table>
+
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+			<!-- div col -->
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

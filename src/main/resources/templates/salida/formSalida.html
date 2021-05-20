@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body bgcolor="red">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-1"></div>
+
+
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+
+					<div class="card-body">
+
+						<form th:action="@{/formSalida}" th:object="${salida}"
+							method="post">
+
+							<p
+								th:text="${entradafacs.cliente.cliente} +' - '+ ${entradafacs.noFactura} +' - '+ ${entradafacs.proveedor.nomproveedor}
+				 		+' - '+ ${entradafacs.composicion.nomcomposicion} +' - '+ ${entradafacs.lote.nomlote}  
+				 	    +' - '+ ${dibuFacs.nomdibujo} +' - '+ ${facDibuMaquis.numero}"
+								style="font-weight: bold;"></p>
+
+							<!--	
+							 <label for="Cliente">Cliente</label>   -->
+							<select hidden class="form-control" name="cliente"
+								th:field="*{cliente}" id="cliente" required="required">
+
+								<option hidden th:each="clie: ${entradafacs.cliente}"
+									th:value="${clie.id}" th:text="${clie.cliente}"></option>
+							</select>
+
+							<!-- 	
+							<label for="entradaFactura">Factura</label>  -->
+							<select hidden class="form-control" name="entradaFactura"
+								th:field="*{entradaFactura}" id="entradaFactura"
+								required="required">
+
+								<option hidden th:each="entradafac: ${entradafactura}"
+									th:value="${entradafac.id}" th:text="${entradafac.noFactura}"></option>
+							</select>
+
+							<!-- 	
+							<label for="Proveedor">Proveedor</label>  -->
+							<select hidden class="form-control" name="proveedor"
+								th:field="*{proveedor}" id="proveedor" required="required">
+
+								<option hidden th:each="prov: ${entradafacs.proveedor}"
+									th:value="${prov.id}" th:text="${prov.nomproveedor}"></option>
+							</select>
+
+
+							<!-- 	
+							<label for="Composicion">Composicion</label>   -->
+							<select hidden class="form-control" name="composicion"
+								th:field="*{composicion}" id="composicion" required="required">
+
+								<option hidden th:each="composi: ${entradafacs.composicion}"
+									th:value="${composi.id}" th:text="${composi.nomcomposicion}"></option>
+							</select>
+
+
+							<!-- 
+							<label for="lote">Lote</label>  -->
+							<select hidden class="form-control" name="lote"
+								th:field="*{lote}" id="lote" required="required">
+
+								<option hidden th:each="lot: ${entradafacs.lote}"
+									th:value="${lot.id}" th:text="${lot.nomlote}"></option>
+							</select>
+
+							<!-- 	
+							<label for="dibujo">Dibujo</label>  -->
+							<select hidden class="form-control" name="dibujo"
+								th:field="*{dibujo}" id="dibujo" required="required">
+
+								<option hidden th:each="dibu: ${dibujo}" th:value="${dibu.id}"
+									th:text="${dibu.nomdibujo}"></option>
+							</select>
+
+
+							<!--	
+							<label for="maquina">Maquina</label>   -->
+							<select hidden class="form-control" name="maquina"
+								th:field="*{maquina}" id="maquina" required="required">
+
+								<option hidden th:each="maqui: ${maquina}"
+									th:value="${maqui.id}" th:text="${maqui.numero}"></option>
+							</select> 
+							
+					<label>Rollos = </label> <a th:text="${produccionrollos}" style="font-weight: bold;"></a> 
+					
+					<label>&nbsp; &nbsp; &nbsp; kilos = </label> <a th:text="${kilos}" style="font-weight: bold;"></a> 
+						
+						<div class="form-row">		
+
+				
+							
+							
+							<div class="col-md-3 mb-1">
+							<label for="noNota"># Nota</label>
+							 <input type="text" th:field="*{noNota}" class="form-control"> 
+							</div>
+								
+							<div class="col-md-3 mb-1">	
+							<label	for="fecha">Fecha</label> 
+							<input type="text" class="form-control" th:field="*{fecha}" placeholder="dia-mes-a&ntilde;o">
+							</div>
+							
+							</div>
+
+								<a class="btn btn-warning btn-sm mt-4"
+								href="javascript: history.go(-1)"
+								th:text="'&laquo; Regresar'"></a>
+						
+							<button class="btn btn-primary btn-sm mt-4" type="submit">Guardar</button>
+							
+						
+
+						</form>
+					
+
+					</div>
+				</div>
+
+			</div>
+			<!-- div col -->
+
+
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

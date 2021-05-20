@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+
+<div class="row">
+<p>
+</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-1"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"  th:text="${titulo}"></div>
+					
+					<div class="container">
+						<div class="row">
+
+							<div class="col">
+								<a class="btn btn-warning btn-sm mt-4" th:href="@{'/submenu/'}"
+									th:text="'&laquo; Regresar'"></a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="card-body">
+						<table class="table table-striped">
+
+							<thead>
+								<tr>
+									<th>Proveedores</th>
+									<th>Fecha</th>
+									<th>Editar</th>
+									<th>Eliminar</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="proveedor: ${proveedores}" th:if="${proveedor.activo == 1}">
+							
+									<td th:text="${proveedor.nomproveedor}"></td>
+									<td th:text="${proveedor.fecha}"></td>
+									<td><a class="btn btn-primary btn-sm"
+										th:href="@{/formprov/} + ${proveedor.id}" th:text="'Editar'"></a></td>
+									<td><a class="btn btn-danger btn-sm"
+										th:href="@{/eliminarprov/} + ${proveedor.id}" th:text="'Eliminar'"
+										onclick="return confirm('Estás seguro que quieres eliminar?')"></a>
+									</td>
+									
+								</tr>
+							</tbody>
+
+						</table>
+						
+			
+						
+					</div>
+
+				</div>
+
+
+			</div>
+			<!-- div col -->
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

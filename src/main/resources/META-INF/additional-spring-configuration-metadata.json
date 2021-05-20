@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "NotEmpty.empleado.nombre",
+    "type": "java.lang.String",
+    "description": "A description for 'NotEmpty.empleado.nombre'"
+  },
+  {
+    "name": "NotEmpty.empleado.apellido",
+    "type": "java.lang.String",
+    "description": "A description for 'NotEmpty.empleado.apellido'"
+  },
+  {
+    "name": "NotEmpty.empleado.codigo",
+    "type": "java.lang.String",
+    "description": "A description for 'NotEmpty.empleado.codigo'"
+  },
+  {
+    "name": "NotNull.empleado.activo",
+    "type": "java.lang.String",
+    "description": "A description for 'NotNull.empleado.activo'"
+  },
+  {
+    "name": "NotEmpty.empleado.telefono",
+    "type": "java.lang.String",
+    "description": "A description for 'NotEmpty.empleado.telefono'"
+  },
+  {
+    "name": "NotNull.empleado.fecha",
+    "type": "java.lang.String",
+    "description": "A description for 'NotNull.empleado.fecha'"
+  }
+]}

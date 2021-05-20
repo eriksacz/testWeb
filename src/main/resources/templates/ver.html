@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+<div class="row">
+<p>
+</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"  th:text="${titulo}"></div>
+		
+					<div class="card-body">
+
+				<img th:if="*{empleado.foto != null}" class="img-thumbnail rounded float-left"
+							style="max-width: 25%;"
+							th:src="@{'/uploads/' + ${empleado.foto}}" alt="${empleado.foto}" />
+							
+					<ul class="list-group">
+
+							<li th:text="'Código de Empleado:   '+${empleado.codigo}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Nombre:   '+${empleado.nombre}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Apellido:   '+${empleado.apellido}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Teléfono:   '+${empleado.telefono}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Fecha de Ingreso:   '+${empleado.createAt}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+						</ul>
+	<a class="btn btn-warning btn-xs mt-4" th:href="@{'/listar/'}" th:text="'&laquo; Regresar'"></a>
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

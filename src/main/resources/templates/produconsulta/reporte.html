@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+
+<div class="row">
+<p>
+</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			
+			<div class="col">
+	<a class="btn btn-success mx-3" th:href="@{'/reportes/'(format=xlsx)}">EXCEL</a>
+						<table class="table table-striped table-sm">
+
+							<thead>
+								<tr>
+									
+									<th style ="font-size: 10px;">Empleado</th>
+									<th style ="font-size: 10px;">Dibujo</th>
+									<th style ="font-size: 10px;">Proveedor</th>
+									<th style ="font-size: 10px;">Composicion</th>
+									<th style ="font-size: 10px;">Maquina</th>
+									<th style ="font-size: 10px;">Lote</th>
+									<th style ="font-size: 10px;">Turno</th>
+									<th style ="font-size: 10px;">Factura</th>
+									<th style ="font-size: 10px;">Cliente</th>
+									<th style ="font-size: 10px;">Rollo</th>
+									<th style ="font-size: 10px;">Kilo</th>
+									<th style ="font-size: 10px;">Fecha</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="concent: ${produConsult}" >			
+									<td style ="font-size: 10px;" th:text="${concent.empleado.nombre}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.dibujo.nomdibujo}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.proveedor.nomproveedor}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.composicion.nomcomposicion}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.maquina.numero}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.lote.nomlote}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.turno.turno}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.entradaFactura.noFactura}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.cliente.cliente}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.rollor}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.kilor}"></td>
+						        	<td style ="font-size: 10px;" th:text="${concent.fechar}"></td>
+									
+								</tr>
+							</tbody>
+
+						</table>						
+					</div>
+				
+			<!-- div col -->
+
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

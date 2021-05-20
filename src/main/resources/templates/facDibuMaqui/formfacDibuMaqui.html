@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="row">
+		<p>
+	</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+					<div class="card-body">
+
+						<h3 th:text="'Dibujo -> ' + ${dibuFac.dibujo.nomdibujo}"></h3>
+
+
+						<table class="table table-striped table-sm">
+
+							<thead>
+								<tr>
+									<th>Dibujo</th>
+									<th>Máquina</th>
+
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="clienteLote: ${dibuFac.FacDibuMaquis}" th:if="${clienteLote.activo == 1}">
+
+									<td>
+										<h4>
+											<span class="badge badge-pill badge-light"
+												th:text="${clienteLote.dibuFac.dibujo.nomdibujo}"> </span>
+										</h4>
+									</td>
+									<td>
+										<h4>
+											<span class="badge badge-pill badge-light"
+												th:text="${clienteLote.maquina.numero}"> </span>
+										</h4>
+									
+									<a class="btn btn-danger btn-sm"
+								th:href="@{/eliminarfacdibumaqui/} + ${clienteLote.id}"
+								th:text="${'Eliminar'}"
+								onclick="return confirm('Estás seguro que quieres eliminar?')"
+								></a>	
+										
+										
+									</td>
+
+								</tr>
+							</tbody>
+
+						</table>
+
+						<form th:action="@{/formfacDibuMaqui}" th:object="${facDibuMaqui}"
+							method="post">
+
+
+
+							<div class="form-row">
+
+								
+								<div class="col-md-6 mb-1">
+									<div class="form-group">
+										<label for="maquina">Máquina</label> <select
+											class="form-control" name="maquina" th:field="*{maquina}"
+											id="maquina" required="required">
+											<option value="">-Selecciona una Máquina-</option>
+											<option th:each="clienteLote: ${dibuFac.dibujo.MaquiDibus}"
+				th:if="${clienteLote.maquina.activo == 1 && clienteLote.maquina.estado == 1 }"
+												
+												th:value="${clienteLote.maquina.id}" th:text="${clienteLote.maquina.numero}"
+												></option>
+										</select>
+									</div>
+								</div>
+
+
+							</div>
+
+							
+								<a class="btn btn-warning btn-xs mt-4"
+								th:href="@{'/dibuFac1/' + ${dibuFac.entradaFactura.id}}"
+								th:text="'&laquo; Regresar'"></a>
+							
+							
+						
+							
+							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
+							<!-- // Mio -->
+
+						</form>
+
+
+
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

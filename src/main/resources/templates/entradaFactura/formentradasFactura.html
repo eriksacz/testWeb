@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="row">
+		<p>
+	</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+					<div class="card-body">
+
+						<form th:action="@{/formentradasFactura}"
+							th:object="${entradaFactura}" method="post">
+
+							<div class="form-row">
+
+								<label>Para el Cliente :</label> <input style="border: 0"
+									id="confondo" th:value="${entradaFactura.cliente.cliente}"
+									disabled='disabled' />
+							</div>
+
+							<!-- Se agrega este hidden para pasar el id -->
+							
+							
+							<div class="form-row">
+								<div class="col-md-6 mb-1">
+									<label for="cliente_id"></label> <input type="hidden"
+										th:field="*{cliente}" class="form-control" required="required" />
+								</div>
+							</div>
+							<!-- // Se agrega este hidden para pasar el id -->
+
+							<div class="form-row">
+
+								<div class="col-md-4 mb-1">
+									<label for="noFactura">Número de factura</label> <input
+										type="text" th:field="*{noFactura}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('noFactura')}"
+										th:errors="*{noFactura}"></small>
+								</div>
+
+								<div class="col-md-4 mb-1">
+									<label for="noArticulo">Número de artículos</label> <input
+										type="text" th:field="*{noArticulo}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('noArticulo')}"
+										th:errors="*{noArticulo}"></small>
+
+								</div>
+
+								
+								<div class="col-md-4 mb-1">
+									<label for="kilo">Kilos de Entrada</label> <input type="text"
+										th:field="*{kilo}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('kilo')}" th:errors="*{kilo}"></small>
+
+								</div>
+
+							</div>
+
+
+							<div class="form-row my-4">
+								<div class="col-md-4 mb-1">
+									<label for="lote">Selecciona un Lote</label> <select
+										class="form-control" name="lote" th:field="*{lote.id}"
+										id="lote" required="required">
+										<option value="">-Selecciona un Lote-</option>
+										<option th:each="clientLote: ${cliente.ClientLot}"
+											th:value="${clientLote.lote.id}"
+											th:text="${clientLote.lote.nomlote}"
+											th:if="${clientLote.activo == 1}"></option>
+									</select> 
+									
+									</div>
+									<div class="col-md-4 mb-1">
+									<label for="composicion">Selecciona una Composición</label> <select
+										class="form-control" name="composicion"
+										th:field="*{composicion.id}" id="composicion"
+										required="required">
+										<option value="">Selecciona una Composición</option>
+										<option th:each="clientcomposicion: ${cliente.ClientComposi}"
+											th:value="${clientcomposicion.composicion.id}"
+											th:text="${clientcomposicion.composicion.nomcomposicion}"
+											th:if="${clientcomposicion.activo == 1}"></option>
+									</select> 
+									</div>
+									<div class="col-md-4 mb-1">
+									
+									<label for="proveedor">Selecciona un Proveedor</label> <select
+										class="form-control" name="proveedor"
+										th:field="*{proveedor.id}" id="proveedor" required="required">
+										<option value="">Selecciona un Proveedor</option>
+										<option th:each="clientprov: ${cliente.ClientProveedor}"
+											th:value="${clientprov.proveedor.id}"
+											th:text="${clientprov.proveedor.nomproveedor}"
+											th:if="${clientprov.activo == 1}"></option>
+									</select>
+								</div>
+							</div>
+
+
+
+							<div class="form-row my-4">
+
+
+
+								<div class="col-md-3 mb-1" style="padding-left: 45px">
+									<label>Registro</label>
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=1
+											class="form-check-input mr-2" />Alta
+										</label>
+									</div>
+
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=0
+											class="form-check-input mr-2">Baja
+										</label>
+									</div>
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('activo')}" th:errors="*{activo}"></small>
+								</div>
+
+								<div class="col-md-3 mb-1" style="padding-left: 45px">
+									<label>Registro</label>
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{estado}" th:value=1
+											class="form-check-input mr-2" />Inicio
+										</label>
+									</div>
+
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{estado}" th:value=0
+											class="form-check-input mr-2">Término
+										</label>
+									</div>
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></small>
+								</div>
+
+								<div class="col-md-4 mb-1">
+									<label for="fecha">Fecha</label> <input type="text"
+										class="form-control" th:field="*{fecha}"
+										placeholder="dia-mes-año"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
+								</div>
+
+
+							</div>
+
+							<a class="btn btn-warning btn-xs mt-4"
+								th:href="@{'/listarclie/'}" th:text="'&laquo; Regresar'"></a>
+							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
+							<!-- // Mio -->
+
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

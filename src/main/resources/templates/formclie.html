@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class="row">
+<p>
+</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+					<div class="card-header text-dark text-center" id="card-titulo" th:text="${titulo}"></div>
+					<div class="card-body">
+
+						<form th:action="@{/formclie}" th:object="${cliente}" method="post"
+							enctype="multipart/form-data">
+
+							<!-- Mio -->
+							<div class="form-row">
+
+								<div class="col-md-6 mb-1">
+									<label for="cliente">Nombre de Cliente</label> <input type="text"
+										th:field="*{cliente}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('cliente')}" th:errors="*{cliente}"></small>
+								</div>
+
+								<div class="col-md-6 mb-1">
+									<label for="rfc">RFC</label> <input type="text"
+										th:field="*{rfc}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('rfc')}"
+										th:errors="*{rfc}"></small>
+
+								</div>
+
+							</div>
+
+
+							<div class="form-row">
+
+								<div class="col-md-5 mb-1">
+									<label for="telefono">Teléfono</label> <input type="number"
+										th:field="*{telefono}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('telefono')}"
+										th:errors="*{telefono}"></small>
+								</div>
+
+
+								<div class="col-md-3 mb-1" style="padding-left: 45px">
+									<label>Registro</label>
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=1
+											class="form-check-input mr-2"
+											th:errorclass="'form-control alert-danger'">Alta
+										</label>
+									</div>
+
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=0
+											class="form-check-input mr-2"
+											th:errorclass="'form-control alert-danger'">Baja
+										</label>
+									</div>
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('activo')}" th:errors="*{activo}"></small>
+								</div>
+
+
+								<div class="col-md-3 mb-1">
+									<label for="fecha">Fecha</label> <input
+										type="text" class="form-control" th:field="*{fecha}"
+										placeholder="dia-mes-año"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('fecha')}"
+										th:errors="*{fecha}"></small>
+								</div>
+
+
+							</div>
+
+							<div class="form-row">
+								<div class="col-md-12 mb-1">
+									<label for="direccion">Dirección</label> <input
+										type="text" th:field="*{direccion}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></small>
+								</div>
+							</div>
+
+							<div class="form-row">
+
+									<div class="col-md-6 mb-1">
+									<label for="ciudad">Ciudad</label> <input
+										type="text" th:field="*{ciudad}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></small>
+								</div>
+
+								<div class="col-md-6 mb-1">
+									<label for="correo">Correo</label> <input type="text"
+										th:field="*{correo}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('correo')}"
+										th:errors="*{correo}"></small>
+
+								</div>
+
+							</div>
+							
+							
+							<div class="form-row">
+								<div class="col-md-8 mb-1">
+									<label for="nom_contacto">Nombre del Contacto</label> <input
+										type="text" th:field="*{nom_contacto}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('nom_contacto')}" th:errors="*{nom_contacto}"></small>
+								</div>
+							</div>
+
+	<a class="btn btn-warning btn-xs mt-4" th:href="@{'/listarclie/'}" th:text="'&laquo; Regresar'"></a>
+							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
+							<!-- // Mio -->
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

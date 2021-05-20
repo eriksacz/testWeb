@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+<div class="row">
+<p>
+</div>
+
+	<div class="container">
+		<div class="row mt-2">
+
+			<div class="col-1"></div>
+
+			<div class="col">
+			
+			
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"  th:text="${titulo}"></div>
+					<div class="card-body">
+
+
+						<ul class="list-group list-group-sm">
+
+							<li th:text="'Cliente:   '+${facdetalle.cliente.cliente}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Factura:   '+${facdetalle.noFactura}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Número de Artículos:   '+${facdetalle.noArticulo}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Kilos:   '+${facdetalle.kilo}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Lote:   '+${facdetalle.lote.nomlote}"
+								id="text-ver" class="list-group-item bg-dark"></li>	
+							<li th:text="'Composición:   '+${facdetalle.composicion.nomcomposicion}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Proveedor:   '+${facdetalle.proveedor.nomproveedor}"
+								id="text-ver" class="list-group-item bg-dark"></li>
+							<li th:text="'Fecha:   '+${facdetalle.fecha}"
+								id="text-ver" class="list-group-item bg-dark"></li>			
+						
+						</ul>
+	
+						
+	<a class="btn btn-warning btn-xs mt-4" th:href="@{/verclie/} + ${facdetalle.cliente.id}" th:text="'&laquo; Regresar'"></a>
+	
+	<a class="btn btn-primary btn-xs mt-4" th:href="@{/formentradasFactura2/} + ${facdetalle.id}" th:text="'Editar'"></a>
+										
+					</div>
+				</div>
+			
+
+
+			</div>
+			<!-- div col -->
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

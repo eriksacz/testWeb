@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body bgcolor="red">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-1"></div>
+
+
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+
+					<div class="card-body">
+
+						<form th:action="@{/formSegunda}" th:object="${segunda}"
+							method="post">
+
+							<p
+								th:text="${produccion.cliente.cliente} +' - '+ ${produccion.entradaFactura.noFactura} +' - '+ ${produccion.proveedor.nomproveedor}
+				 		+' - '+ ${produccion.composicion.nomcomposicion} +' - '+ ${produccion.lote.nomlote}  
+				 	    +' - '+ ${produccion.dibujo.nomdibujo} +' - '+ ${produccion.maquina.numero}"
+								style="font-weight: bold;"></p>
+
+						
+							<select hidden class="form-control" name="cliente"
+								th:field="*{cliente}" id="cliente" required="required">
+
+								<option hidden th:each="clie: ${produccion.cliente}"
+									th:value="${clie.id}" th:text="${clie.cliente}"></option>
+							</select>
+
+						
+							<select hidden class="form-control" name="entradaFactura"
+								th:field="*{entradaFactura}" id="entradaFactura"
+								required="required">
+
+								<option hidden th:each="entradafac: ${produccion.entradaFactura}"
+									th:value="${entradafac.id}" th:text="${entradafac.noFactura}"></option>
+							</select>
+
+					
+							<select hidden class="form-control" name="proveedor"
+								th:field="*{proveedor}" id="proveedor" required="required">
+
+								<option hidden th:each="prov: ${produccion.proveedor}"
+									th:value="${prov.id}" th:text="${prov.nomproveedor}"></option>
+							</select>
+
+
+							<!-- 	
+							<label for="Composicion">Composicion</label>   -->
+							<select hidden class="form-control" name="composicion"
+								th:field="*{composicion}" id="composicion" required="required">
+
+								<option hidden th:each="composi: ${produccion.composicion}"
+									th:value="${composi.id}" th:text="${composi.nomcomposicion}"></option>
+							</select>
+
+
+							<!-- 
+							<label for="lote">Lote</label>  -->
+							<select hidden class="form-control" name="lote"
+								th:field="*{lote}" id="lote" required="required">
+
+								<option hidden th:each="lot: ${produccion.lote}"
+									th:value="${lot.id}" th:text="${lot.nomlote}"></option>
+							</select>
+
+							<!-- 	
+							<label for="dibujo">Dibujo</label>  -->
+							<select hidden class="form-control" name="dibujo"
+								th:field="*{dibujo}" id="dibujo" required="required">
+
+								<option hidden th:each="dibu: ${produccion.dibujo}" th:value="${dibu.id}"
+									th:text="${dibu.nomdibujo}"></option>
+							</select>
+
+
+							<!--	
+							<label for="maquina">Maquina</label>   -->
+							<select hidden class="form-control" name="maquina"
+								th:field="*{maquina}" id="maquina" required="required">
+
+								<option hidden th:each="maqui: ${produccion.maquina}"
+									th:value="${maqui.id}" th:text="${maqui.numero}"></option>
+							</select> 
+
+							<!--	
+							<label for="maquina">Rollo</label>   -->
+							<select hidden class="form-control" name="rollo"
+								th:field="*{rollo}" id="rollo" required="required">
+
+								<option hidden th:each="rol: ${produccion}"
+									th:value="${rol.rollo}" th:text="${rol.rollo}"></option>
+							</select> 
+							
+							<!--	
+							<label for="maquina">Rollo</label>   -->
+							<select hidden class="form-control" name="kilo"
+								th:field="*{kilo}" id="kilo" required="required">
+
+								<option hidden th:each="kil: ${produccion}"
+									th:value="${kil.kilo}" th:text="${kil.kilo}"></option>
+							</select> 
+							
+								<!--	
+							<label for="empleado">Empleado</label>   -->
+							<select hidden class="form-control" name="empleado"
+								th:field="*{empleado}" id="empleado" required="required">
+
+								<option hidden th:each="emp: ${produccion.empleado}"
+									th:value="${emp.id}" th:text="${emp.nombre}"></option>
+							</select> 
+
+						<!--	
+							<label for="Turno">Turno</label>   -->
+							<select hidden class="form-control" name="turno"
+								th:field="*{turno}" id="turno" required="required">
+
+								<option hidden th:each="tur: ${produccion.turno}"
+									th:value="${tur.id}" th:text="${tur.turno}"></option>
+							</select> 
+							
+							
+											
+					<div class="form-group">
+						<label for="mensaje">Defecto</label>
+						<textarea class="form-control" th:field="*{defecto}" placeholder="Detalle del Defecto"></textarea>
+					</div>
+							
+								<a class="btn btn-warning btn-sm mt-4"
+								href="javascript: history.go(-1)"
+								th:text="'&laquo; Regresar'"></a>
+
+							<button class="btn btn-primary btn-sm mt-4" type="submit">Guardar</button>
+
+						</form>
+						
+
+					</div>
+				</div>
+
+			</div>
+			<!-- div col -->
+
+
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

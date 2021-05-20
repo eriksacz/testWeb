@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="row">
+		<p>
+	</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+					<div class="card-body">
+
+
+						<div class="container">
+							<div class="row mt-3">
+								<div class="col">
+
+									<h2>Reporte para Minería de Datos</h2>
+									<h3 class="mt-4">Asignacion de Máquinas</h3>
+
+							<!-- <a class="btn btn-danger" th:href="@{'/reporte/'(format=pdf)}">PDF</a>
+							     <a class="btn btn-success mx-3" th:href="@{'/reporte/'(format=xlsx)}">EXCEL</a>									 
+							     <a class="btn btn-info mx-3" th:href="@{'/reporte/'(format=pdf)}">CSV</a>   -->
+
+
+	                            <a class="btn btn-danger btn-sm">PDF</a>
+							    <a class="btn btn-success btn-sm mx-3">EXCEL</a>
+								<a class="btn btn-info btn-sm mx-3">CSV</a>
+
+								 <a class="btn btn-dark btn-sm mx-3" th:href="@{/reporte}">Reporte
+										Para Minería</a>  	
+
+									<h3 class="mt-4">Rendimiento de Máquinas</h3>
+
+							<!-- <a class="btn btn-danger" th:href="@{'/reporte/'(format=pdf)}">PDF</a>
+								 <a class="btn btn-success mx-3" th:href="@{'/reporte/'(format=pdf)}">EXCEL</a>
+								 <a class="btn btn-info mx-3" th:href="@{'/reporte/'(format=pdf)}">CSV</a>    -->
+
+	                            <a class="btn btn-danger btn-sm">PDF</a>
+							    <a class="btn btn-success btn-sm mx-3">EXCEL</a>
+								<a class="btn btn-info btn-sm mx-3">CSV</a>
+
+								 <a class="btn btn-dark btn-sm mx-3" th:href="@{/reporte}">Reporte
+										Para Minería</a>  
+
+								</div>
+							</div>
+						</div>
+						
+					
+						
+						<!-- - -->
+						<div class="container">
+							<div class="row mt-3">
+								<div class="col">
+
+										<h3>Reportes Generales</h3>
+
+									<button class="btn btn-primary btn-sm" data-toggle="modal"
+										data-target="#fm-modal-grid">Intervalo de Fechas</button>
+									<div class="modal fade" id="fm-modal-grid" tabindex="-1"
+										role="dialog" aria-labelledby="fm-modal-grid"
+										aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="">Intervalo de Fechas</h5>
+													<button class="close" data-dismiss="modal"
+														aria-label="Cerrar">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+
+												<div class="modal-body">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-12 col-sm-6">
+
+
+																<form th:action="@{/menuconsulta}"
+																	th:object="${produConsulta}" method="post">
+
+																	<div class="form-row">
+																		<div class="form-group col-md-6">
+																			<label for="fechaInicio">Fecha de Inicio</label> <input
+																				th:field="*{fechainicio}" type="text"
+																				class="form-control">
+																		</div>
+
+																		<div class="form-group col-md-6">
+																			<label for="fechaTermino">Fecha de Termino</label> <input
+																				th:field="*{fechafin}" type="text"
+																				class="form-control">
+																		</div>
+																	</div>
+
+																	<button type="submit" class="btn btn-primary">Generar</button>
+
+																</form>
+
+
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="modal-footer">
+
+													<button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<button class="btn btn-primary btn-sm mx-3" data-toggle="modal"
+										data-target="#fm-modal-grid">Cliente</button>
+									<div class="modal fade" id="fm-modal-grid" tabindex="-1"
+										role="dialog" aria-labelledby="fm-modal-grid"
+										aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="">Cliente</h5>
+													<button class="close" data-dismiss="modal"
+														aria-label="Cerrar">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+
+												<div class="modal-body">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-12 col-sm-6">
+																<h1>Contenido del modal</h1>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="modal-footer">
+													<button class="btn btn-success">Aceptar</button>
+													<button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<!--  -->
+
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

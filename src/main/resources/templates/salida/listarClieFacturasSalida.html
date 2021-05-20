@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body bgcolor="red">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-3"></div>
+
+
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+
+					<div class="card-body">
+
+						<table class="table table-hover table-sm">
+
+							<thead>
+								<tr class="table-danger">
+									<th>Cliente</th>
+
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td><a th:text="${clientes.cliente}" style="font-weight: bold;"></a></td>
+
+
+								</tr>
+							</tbody>
+
+						</table>
+
+
+						<table class="table table-hover table-sm">
+
+							<thead>
+								<tr class="table-danger">
+									<th>Factura</th>
+									<th>Asignar Salidas</th>
+									<th>Ver Salidas</th>
+									
+
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="fac: ${clientes.entradaFactura}"
+									th:if="${fac.activo == 1}">
+									
+									<td><a th:text="${fac.noFactura}"></a></td>
+									
+									
+									<td><a class="btn btn-success btn-sm"
+										th:href="@{/listarDibuFacSalida/} + ${fac.id}"
+										th:text="${fac.noFactura}"></a></td>
+										
+									<td><a class="btn btn-info btn-sm"
+										
+										th:text="${fac.noFactura}"></a></td>	
+
+
+								</tr>
+							</tbody>
+
+						</table>
+
+							<a class="btn btn-warning btn-sm mt-4"
+								href="javascript: history.go(-1)"
+								th:text="'&laquo; Regresar'"></a>
+
+
+					</div>
+				</div>
+
+			</div>
+			<!-- div col -->
+
+
+
+			<div class="col-3"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

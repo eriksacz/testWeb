@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<title th:text="'SistemaWeb' + ${titulo}"></title>
+
+<!-- Usuarios -->
+<link rel="icon" href="favicon.ico">
+<!-- // Usuarios -->
+
+<!-- boostrap -->
+<link href="../../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+
+<!-- miestilo.css -->
+<link href="../../static/css/miestilo.css" rel="stylesheet"
+	th:href="@{/css/miestilo.css}">
+
+<!-- Usuarios -->
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	rel="stylesheet">
+<!-- // Usuarios -->
+
+</head>
+<body>
+
+	<header th:fragment="header">
+
+
+		<!-- Para poner el nav fijo arriba 
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">  -->
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+			<a class="navbar-brand" id="sistemweb" style="color: #FFFF"
+				th:href="@{/}">SistemaWeb</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" style="color: #CDA4E0"> Empleados </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/listar}">Lista de
+								Empleados</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/form}">Agregar Empleado</a>
+						</div></li>
+				</ul>
+
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" style="color: #CDA4E0"> Clientes 
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/listarclie}">Lista de
+								Clientes</a>
+								
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/formclie}">Agregar
+								Cliente</a>
+							
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/listcontentClie}">Detalles
+								Clientes</a>
+								
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/listentradaFactura}">Lista
+								de facturas Generales</a>
+								
+				<!-- 		<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/formentradasFactura}">Agregar
+								factura</a>    -->
+								
+						</div>
+					</li>
+				</ul>
+
+
+
+
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" style="color: #CDA4E0"> Usuarios </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/usuarios/index}">Lista
+								de Usuarios</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/registrarse}">Agregar
+								Usuario</a>
+						</div></li>
+				</ul>
+				
+				
+				
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" style="color: #CDA4E0"> Máquinas </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/listmaquina}">Lista
+								de Máquinas</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/formmaquina}">Agregar
+								Máquinas</a>
+									<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/listmaquidibu}">Detalles
+								de Máquinas</a>
+						</div></li>
+				</ul>
+				
+				
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a th:href="@{/submenu}"
+						id="navbarDropdown" style="color: #CDA4E0"> Complementos </a></li>
+				</ul>
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a th:href="@{/formproduccion1}"
+						id="navbarDropdown" style="color: #CDA4E0"> Producción </a></li>
+				</ul>
+				
+				
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a th:href="@{/listarClienteSalida}"
+						id="navbarDropdown" style="color: #CDA4E0"> Salidas </a></li>
+				</ul>
+				
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a th:href="@{/listarClienteSegunda}"
+						id="navbarDropdown" style="color: #CDA4E0"> Segundas </a></li>
+				</ul>
+				
+					<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a th:href="@{/menuconsulta}"
+						id="navbarDropdown" style="color: #CDA4E0"> Reportes </a></li>
+				</ul>
+
+
+				<!-- Usuario logeado -->
+				<li sec:authorize="isAuthenticated()" class="dropdown show"><a
+					class="btn btn-warning dropdown-toggle btn-sm" href="#"
+					role="button" id="dropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> <span
+						sec:authentication="name"></span>
+				</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+						<form id="salirform" th:action="@{/logout}" method="post">
+							<button class="btn btn-danger btn-xs"
+								onclick="document.getElementById('salirform').submit();"
+								type="submit">Exit</button>
+							<input type="hidden" th:name="${_csrf.parameterName}"
+								th:value="${_csrf.token}" />
+						</form>
+
+					</div></li>
+				<!-- // Usuario logeado -->
+
+			</div>
+
+		</nav>
+
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
+
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+			th:text="${error}"></div>
+		<div class="alert alert-warning" th:if="${warnin != null}"
+			th:text="${warning}"></div>
+
+	</header>
+
+	<footer th:fragment="footer">
+		<hr />
+
+		<div class="contenedor d-flex justify-content-center">
+			<img th:src="@{/imagenes/footer.png}" alt="logo" />
+
+		</div>
+
+		<div class="contenedor d-flex justify-content-center">
+			<p>
+				Powered by <a href="http://test.edomex.gob.mx/" target="_blank">TEST</a>.
+			</p>
+
+		</div>
+
+		<div class="contenedor d-flex justify-content-center">
+			<p>
+				Este proyecto fue desarrollado en el Tecnológico de Estudios
+				Superiores Tianguistenco.<br />
+			</p>
+
+		</div>
+
+		<!-- Optional JavaScript -->
+		<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+		<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+
+	</footer>
+
+
+</body>
+</html>

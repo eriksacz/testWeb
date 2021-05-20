@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body bgcolor="red">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-1"></div>
+
+
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+
+					<div class="card-header text-dark text-center" id="card-titulo"
+						th:text="${titulo}"></div>
+
+					<div class="card-body">
+
+					
+
+							<table class="table table-hover table-sm">
+
+								<thead>
+									<tr class="table-danger">
+										<th>Cliente</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><a
+											th:text="${dibuFacs.entradaFactura.cliente.cliente}" style="font-weight: bold;"></a></td>
+									</tr>
+								</tbody>
+
+							</table>
+
+
+							<table class="table table-hover table-sm">
+
+								<thead>
+									<tr class="table-danger">
+										<th>Factura</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><a th:text="${dibuFacs.entradaFactura.noFactura}" style="font-weight: bold;"></a></td>
+										<td><a
+											th:text="${'Lote: '+ dibuFacs.entradaFactura.lote.nomlote}"
+											style="font-weight: bold;"
+											th:if="${dibuFacs.entradaFactura.activo == 1}"></a></td>
+										<td><a
+											th:text="${'Composición: '+ dibuFacs.entradaFactura.composicion.nomcomposicion}"
+											style="font-weight: bold;"
+											th:if="${dibuFacs.entradaFactura.activo == 1}"></a></td>
+										<td><a
+											th:text="${'Proveedor: '+ dibuFacs.entradaFactura.proveedor.nomproveedor}"
+											style="font-weight: bold;"
+											th:if="${dibuFacs.entradaFactura.activo == 1}"></a></td>
+									</tr>
+								</tbody>
+
+							</table>
+
+
+							<table class="table table-hover table-sm">
+
+								<thead>
+									<tr class="table-danger">
+										<th>Dibujo</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+								<td th:text="${dibuFacs.dibujo.nomdibujo}" style="font-weight: bold;"></td> 
+									</tr>
+								</tbody>
+
+							</table>
+							
+							<table class="table table-hover table-sm">
+							
+								<thead>
+								<tr class="table-danger">
+									<th>Máquinas</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="maquin: ${dibuFacs.FacDibuMaquis}"
+									th:if="${maquin.activo == 1}">
+									<td><a class="btn btn-success btn-sm"
+				th:href="@{'/formSalida/' + ${dibuFacs.entradaFactura.id } +'/'+ ${maquin.maquina.id} +'/'+  ${dibuFacs.dibujo.id}}"		
+										th:text="${maquin.maquina.numero}"></a></td>
+								</tr>
+							</tbody>
+
+						</table>
+							
+	    				<a class="btn btn-warning btn-sm mt-4"
+								href="javascript: history.go(-1)"
+								th:text="'&laquo; Regresar'"></a>
+
+		
+
+	
+					</div>
+				</div>
+
+			</div>
+			<!-- div col -->
+
+
+
+			<div class="col-1"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<!-- <tr th:each="maqui: ${dibuFacs.FacDibuMaquis}"
+									th:if="${maqui.activo == 1}">
+									<td><a class="btn btn-success btn-xs"
+										th:href="@{/formproduccion4/} + ${maqui.id}"
+										th:text="${maqui.maquina.numero}"></a></td>
+								</tr>  -->
+</body>
+</html>

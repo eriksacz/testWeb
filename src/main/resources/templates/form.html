@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class="row">
+<p>
+</div>
+
+	<div class="container">
+		<div class="row mt-2">
+			<div class="col-2"></div>
+			<div class="col">
+
+				<div class="card bg-light border-secondary">
+					<div class="card-header text-dark text-center" id="card-titulo" th:text="${titulo}"></div>
+					<div class="card-body">
+
+						<form th:action="@{/form}" th:object="${empleado}" method="post"
+							enctype="multipart/form-data">
+
+							<!-- Mio -->
+							<div class="form-row">
+
+								<div class="col-md-6 mb-1">
+									<label for="nombre">Nombre</label> <input type="text"
+										th:field="*{nombre}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+								</div>
+
+								<div class="col-md-6 mb-1">
+									<label for="apellido">Apellidos</label> <input type="text"
+										th:field="*{apellido}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('apellido')}"
+										th:errors="*{apellido}"></small>
+
+								</div>
+
+							</div>
+
+
+							<div class="form-row">
+
+								<div class="col-md-5 mb-1">
+									<label for="telefono">Teléfono</label> <input type="number"
+										th:field="*{telefono}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('telefono')}"
+										th:errors="*{telefono}"></small>
+								</div>
+
+
+								<div class="col-md-3 mb-1" style="padding-left: 45px">
+									<label>Registro</label>
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=1
+											class="form-check-input mr-2"
+											th:errorclass="'form-control alert-danger'">Alta
+										</label>
+									</div>
+
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{activo}" th:value=0
+											class="form-check-input mr-2"
+											th:errorclass="'form-control alert-danger'">Baja
+										</label>
+									</div>
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('activo')}" th:errors="*{activo}"></small>
+								</div>
+
+
+								<div class="col-md-3 mb-1">
+									<label for="validationTooltip05">Fecha</label> <input
+										type="text" class="form-control" th:field="*{createAt}"
+										placeholder="dia-mes-año"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('createAt')}"
+										th:errors="*{createAt}"></small>
+								</div>
+
+
+							</div>
+
+
+							<div class="form-row">
+
+								<div class="col-md-4 mb-1">
+									<label for="codigo">Código de Empleado</label> <input
+										type="text" th:field="*{codigo}" class="form-control"
+										th:errorclass="'form-control alert-danger'"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>
+								</div>
+
+								<div class="col-md-8 mb-1">
+									<label for="file" class="col-form-label">Foto</label>
+									 <input type="file" name="file"	class="form-control" />
+
+								</div>
+
+							</div>
+
+
+
+<a class="btn btn-warning btn-xs mt-4" th:href="@{'/listar/'}" th:text="'&laquo; Regresar'"></a>
+
+							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
+							<!-- // Mio -->
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<!-- div col -->
+
+			<div class="col-2"></div>
+		</div>
+		<!-- div row -->
+	</div>
+	<!-- div container -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>
