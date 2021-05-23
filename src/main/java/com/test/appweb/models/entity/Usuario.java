@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -27,6 +28,9 @@ public class Usuario {
 	
 	@NotEmpty
 	private String username;
+	
+	@Transient
+	private Integer perfilUsuario;
 	
 	@NotEmpty
 	private String password;
@@ -96,6 +100,16 @@ public class Usuario {
 
 	public void setPerfiles(List<Perfil> perfiles) {
 		this.perfiles = perfiles;
+	}
+
+	
+	
+	public Integer getPerfilUsuario() {
+		return perfilUsuario;
+	}
+
+	public void setPerfilUsuario(Integer perfilUsuario) {
+		this.perfilUsuario = perfilUsuario;
 	}
 
 	@Override

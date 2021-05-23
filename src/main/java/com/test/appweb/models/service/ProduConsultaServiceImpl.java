@@ -5,12 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.test.appweb.models.dao.IProduConsultaDao;
-import com.test.appweb.models.entity.Dibujo;
-import com.test.appweb.models.entity.Empleado;
-import com.test.appweb.models.entity.EntradaFactura;
-import com.test.appweb.models.entity.Maquina;
 import com.test.appweb.models.entity.ProduConsulta;
 
 @Service

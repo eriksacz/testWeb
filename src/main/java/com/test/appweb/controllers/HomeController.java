@@ -103,7 +103,7 @@ public class HomeController {
 		usuario.setFecha(new Date()); // Fecha de Registro, la fecha actual del servidor
 		
 		Perfil perfil = new Perfil();// Creamos el Perfil que le asignaremos al usuario nuevo
-		perfil.setId(2); // Perfil USUARIO
+		perfil.setId(usuario.getPerfilUsuario()); // Perfil USUARIO
 		
 		usuario.agregar(perfil);
 		

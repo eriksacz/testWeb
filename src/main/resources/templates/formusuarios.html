@@ -50,6 +50,47 @@
 
 										</div>
 									</div>
+									
+									
+									
+								<!-- -	
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="perfilUsuario">Tipo de Usuario</label> <input type="text"
+												class="form-control" th:field="*{perfilUsuario}" id="perfilUsuario"
+												name="perfilUsuario"> <small
+												class="form-text text-danger"
+												th:if="${#fields.hasErrors('perfilUsuario')}"
+												th:errors="*{perfilUsuario}"></small>
+
+										</div>
+									</div>
+									
+									 -->
+									
+							<div class="col-md-3 mb-1" style="padding-left: 45px">
+									<label>Tipo de Usuario</label>
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{perfilUsuario}" th:value=1
+											class="form-check-input mr-2"
+											th:errorclass="'form-control alert-danger'">Administrador
+										</label>
+									</div>
+
+									<div class="form-check">
+										<label for="" class="form-check-label"> <input
+											type="radio" th:field="*{perfilUsuario}" th:value=2
+											class="form-check-input mr-2"
+											th:errorclass="'form-control alert-danger'">Encargado
+										</label>
+									</div>
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('perfilUsuario')}" th:errors="*{perfilUsuario}"></small>
+								</div>
+									
+									
+									
 								</div>
 								<hr>
 								

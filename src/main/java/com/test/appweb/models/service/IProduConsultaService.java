@@ -1,11 +1,6 @@
 package com.test.appweb.models.service;
 
 import java.util.List;
-
-import com.test.appweb.models.entity.Dibujo;
-import com.test.appweb.models.entity.Empleado;
-import com.test.appweb.models.entity.EntradaFactura;
-import com.test.appweb.models.entity.Maquina;
 import com.test.appweb.models.entity.ProduConsulta;
 
 public interface IProduConsultaService {
