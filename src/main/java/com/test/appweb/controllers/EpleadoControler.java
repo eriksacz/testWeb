@@ -111,7 +111,7 @@ public class EpleadoControler {
 	public String crear(Map<String, Object> model) {
 
 		Empleado empleado = new Empleado();
-
+		
 		model.put("titulo", "Formulario de Empleados");
 		model.put("empleado", empleado);
 

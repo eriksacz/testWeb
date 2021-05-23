@@ -15,10 +15,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "empleados")
@@ -31,19 +36,23 @@ public class Empleado implements Serializable {
 	@NotEmpty
 	private String codigo;
 
+	@Pattern(regexp ="[a-zA-Z ]{2,254}")
 	@NotEmpty
 	private String nombre;
 
+	@Pattern(regexp ="[a-zA-Z ]{2,254}")
 	@NotEmpty
 	private String apellido;
 
+	//@Pattern(regexp = "[0-9]")
+	@Size(min = 10, max = 10)
 	@NotEmpty
 	private String telefono;
 
 	@NotNull
 	@Column(name = "fecha")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date createAt;
 
 	@NotNull
