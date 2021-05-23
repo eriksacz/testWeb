@@ -67,7 +67,8 @@
 						
 						
 						
-						<td><span th:if="${entradaFactura.estado &lt; 1}"> <a
+						<td>
+						<span th:if="${entradaFactura.estado &lt; 1}"> <a
 											th:href="@{/serviciofactura/} + ${entradaFactura.id}"
 											class="badge badge-pill badge-danger" data-toggle="tooltip"
 											data-placement="left"
@@ -80,7 +81,8 @@
 											data-placement="left"
 											title="Click Para Cabiar a *Fin del Proceso*"
 											th:text="'En Proceso'"></a>
-									</span></td>
+									</span>
+							</td>
 							
 								    <td><a class="btn btn-danger btn-sm"
 										th:href="@{/eliminarfactura/} + ${entradaFactura.id}" th:text="'Eliminar'"

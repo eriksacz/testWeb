@@ -143,7 +143,7 @@ public class EntradaFacturaContoller {
 			return "redirect:/listentradaFactura";
 		}
 		
-		/*	
+			
 		
 		@RequestMapping(value = "/fuerafactura/{id}")
 		public String fuera(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
@@ -173,7 +173,7 @@ public class EntradaFacturaContoller {
 		}
 
 		
-		*/
+		
 		
 		
 		
