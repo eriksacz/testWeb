@@ -165,8 +165,13 @@
 
 							</div>
 
-							<a class="btn btn-warning btn-xs mt-4"
-								th:href="@{'/listentradaFactura/'}" th:text="'&laquo; Regresar'"></a>
+						<!-- <a class="btn btn-warning btn-xs mt-4"
+								th:href="@{'/facDetalle/'}" th:text="'&laquo; Regresar'"></a>   -->
+								
+								<a class="btn btn-warning btn-sm mt-4"
+								href="javascript: history.go(-1)"
+								th:text="'&laquo; Regresar'"></a>	
+								
 							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
 							<!-- // Mio -->
 

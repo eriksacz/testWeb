@@ -89,6 +89,9 @@ public class EntradaFacturaContoller {
 				return "entradaFactura/formentradasFactura";
 			}
 			
+			entradaFactura.setActivo((long) 1);
+			entradaFactura.setEstado((long) 1);
+			
 			// Para saber si fue Creado o Editado
 		    String mensajeFlash = (entradaFactura.getId() != null) ? "Editado con Exito" : "Guardado con Exito";
 

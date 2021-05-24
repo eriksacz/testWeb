@@ -17,7 +17,11 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "clientes")
@@ -27,18 +31,21 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Pattern(regexp ="[a-zA-Z ]{2,254}")
 	@NotEmpty
 	private String cliente;
 
 	@NotEmpty
 	private String direccion;
 
+	@Pattern(regexp ="[a-zA-Z ]{2,254}")
 	@NotEmpty
 	private String ciudad;
 
 	@NotEmpty
 	private String rfc;
 
+	@Size(min = 10, max = 10)
 	@NotEmpty
 	private String telefono;
 
@@ -46,12 +53,13 @@ public class Cliente implements Serializable {
 	@Email
 	private String correo;
 
+	@Pattern(regexp ="[a-zA-Z ]{2,254}")
 	@NotEmpty
 	private String nom_contacto;
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date fecha;
 
 	@NotNull

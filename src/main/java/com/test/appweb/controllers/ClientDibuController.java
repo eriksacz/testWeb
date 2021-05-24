@@ -56,7 +56,7 @@ public class ClientDibuController {
 	
 	@PostMapping("/formclieDibu")
 	public String guardar(ClientDibu clientDibu, SessionStatus status,RedirectAttributes flash) {
-		
+		clientDibu.setActivo((long) 1);
 		clientDibuService.save(clientDibu);	
 		status.setComplete();
 			flash.addFlashAttribute("success", "dibujo Asignado Correctamente");

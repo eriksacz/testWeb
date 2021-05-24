@@ -58,7 +58,7 @@ public class ClientLotController {
 	
 	@PostMapping("/formclieLot")
 	public String guardar(ClientLot clientLot, SessionStatus status,RedirectAttributes flash) {
-		
+		clientLot.setActivo((long) 1);
 		clieLoteService.save(clientLot);
 			status.setComplete();
 			flash.addFlashAttribute("success", "Lote Asignado Correctamente");

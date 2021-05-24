@@ -111,6 +111,8 @@ public class ClienteController {
 		@RequestMapping(value = "/formclie", method = RequestMethod.POST)
 		public String guardar(@Valid Cliente cliente, BindingResult result, Model model
 										, RedirectAttributes flash, SessionStatus status) {
+			
+			 cliente.setActivo((long) 1);
 		
 			if (result.hasErrors()) {
 				model.addAttribute("titulo", "Formulario de Clientes");

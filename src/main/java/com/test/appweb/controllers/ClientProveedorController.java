@@ -48,7 +48,7 @@ public class ClientProveedorController {
 		model.put("cliente", cliente);
 		model.put("clienProveedor", clienProveedor);
 		model.put("proveedores", proveedorService.findAll());
-		model.put("titulo", "Formulario Cliente - Lote");
+		model.put("titulo", "Formulario Cliente - Proveedor");
 		
 		return "clieProveedor/formclieProveedor";
 	}
@@ -56,6 +56,7 @@ public class ClientProveedorController {
 	@PostMapping("/formclieProveedor")
 	public String guardar(ClientProveedor clientProveedor, SessionStatus status,RedirectAttributes flash) {
 		
+		clientProveedor.setActivo((long) 1);
 		clientProveedorService.save(clientProveedor);
 			status.setComplete();
 			flash.addFlashAttribute("success", "Proveedor Asignado Correctamente");

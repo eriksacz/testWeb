@@ -57,6 +57,7 @@ public class ClientComposiController {
 	@PostMapping("/formclieComposi")
 	public String guardar(ClientComposi clientComposi, SessionStatus status,RedirectAttributes flash) {
 		
+		clientComposi.setActivo((long) 1);
 		clieCompoService.save(clientComposi);
 			status.setComplete();
 			flash.addFlashAttribute("success", "Composiciones Asignado Correctamente");

@@ -69,13 +69,13 @@
 								<label for="proveedor">Selecciona un Lote</label> <select
 									class="form-control" name="lote" th:field="*{lote.id}"
 									id="lote" required="required">
-									<option value="">-Selecciona un Cliente-</option>
+									<option value="">-Selecciona un Lote-</option>
 									<option th:each="lote: ${lotes}" th:value="${lote.id}"
 										th:text="${lote.nomlote}"></option>
 								</select>
 
 
-
+							<!-- -
 								<div class="col-md-3 mb-1" style="padding-left: 45px">
 									<label>Registro</label>
 
@@ -96,9 +96,8 @@
 										</label>
 									</div>
 
-
 								</div>
-
+						 -->
 
 
 							</div>

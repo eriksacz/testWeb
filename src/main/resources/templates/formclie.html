@@ -48,7 +48,8 @@
 							<div class="form-row">
 
 								<div class="col-md-5 mb-1">
-									<label for="telefono">Teléfono</label> <input type="number"
+									<label for="telefono">Teléfono</label> <input type="text"
+									pattern="^[0-9,$]*$"
 										th:field="*{telefono}" class="form-control"
 										th:errorclass="'form-control alert-danger'"> <small
 										class="form-text text-danger"
@@ -57,6 +58,7 @@
 								</div>
 
 
+						<!-- 
 								<div class="col-md-3 mb-1" style="padding-left: 45px">
 									<label>Registro</label>
 									<div class="form-check">
@@ -78,10 +80,11 @@
 										th:if="${#fields.hasErrors('activo')}" th:errors="*{activo}"></small>
 								</div>
 
-
+							 -->
+					
 								<div class="col-md-3 mb-1">
 									<label for="fecha">Fecha</label> <input
-										type="text" class="form-control" th:field="*{fecha}"
+										type="date" class="form-control" th:field="*{fecha}"
 										placeholder="dia-mes-año"
 										th:errorclass="'form-control alert-danger'"> <small
 										class="form-text text-danger"
