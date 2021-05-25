@@ -117,8 +117,7 @@
 
 							<div class="form-row my-4">
 
-
-
+				
 								<div class="col-md-3 mb-1" style="padding-left: 45px">
 									<label>Registro</label>
 									<div class="form-check">
@@ -127,6 +126,7 @@
 											class="form-check-input mr-2" />Alta
 										</label>
 									</div>
+									
 
 									<div class="form-check">
 										<label for="" class="form-check-label"> <input
@@ -156,6 +156,8 @@
 									<small class="form-text text-danger"
 										th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></small>
 								</div>
+								
+							
 
 								<div class="col-md-4 mb-1">
 									<label for="fecha">Fecha</label> <input type="text"
@@ -165,8 +167,9 @@
 										th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
 								</div>
 
-
 							</div>
+
+							
 
 							<a class="btn btn-warning btn-xs mt-4"
 								th:href="@{'/listarclie/'}" th:text="'&laquo; Regresar'"></a>
