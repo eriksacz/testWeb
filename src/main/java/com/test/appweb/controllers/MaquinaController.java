@@ -34,7 +34,8 @@ public class MaquinaController {
 		public String crearmaquina(Model model) {
 	    
 		 Maquina maquina = new Maquina();
-		 
+		 maquina.setActivo((long) 1);
+		 maquina.setEstado((long) 1);
 		 model.addAttribute("maquina", maquina);
 		 model.addAttribute("titulo", "Formulario de Máquinas");
 			return "maquinas/formmaquina";

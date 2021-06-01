@@ -26,24 +26,24 @@
 							<div class="form-row">
 
 								<div class="col-md-6 mb-1">
-									<label for="numero">Número de máquina</label> <input type="text"
-										th:field="*{numero}" class="form-control" th:errorclass="'form-control alert-danger'"/>
-								<small class="form-text text-danger"
-										th:if="${#fields.hasErrors('numero')}"
-										th:errors="*{numero}"></small>
+									<label for="numero">Número de máquina</label> <input
+										type="text" th:field="*{numero}" class="form-control"
+										th:errorclass="'form-control alert-danger'" /> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></small>
 								</div>
-								
-								
+
+
 								<div class="col-md-6 mb-1">
 									<label for="nomlote">Marca</label> <input type="text"
-										th:field="*{marca}" class="form-control" th:errorclass="'form-control alert-danger'"/>
-								<small class="form-text text-danger"
-										th:if="${#fields.hasErrors('marca')}"
-										th:errors="*{marca}"></small>
+										th:field="*{marca}" class="form-control"
+										th:errorclass="'form-control alert-danger'" /> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></small>
 								</div>
 
 
-								<div class="col-md-3 mb-1" style="padding-left: 45px">
+						<!-- <div class="col-md-3 mb-1" style="padding-left: 45px">
 									<label>Registro</label>
 									<div class="form-check">
 										<label for="" class="form-check-label"> <input
@@ -62,11 +62,11 @@
 									</div>
 									<small class="form-text text-danger"
 										th:if="${#fields.hasErrors('activo')}" th:errors="*{activo}"></small>
-								</div>
+								</div>   -->
 
 
 
-				<div class="col-md-3 mb-1" style="padding-left: 45px">
+						<!-- <div class="col-md-3 mb-1" style="padding-left: 45px">
 									<label>Estado</label>
 									<div class="form-check">
 										<label for="" class="form-check-label"> <input
@@ -85,11 +85,11 @@
 									</div>
 									<small class="form-text text-danger"
 										th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></small>
-								</div>
+								</div>   -->
 
 
 								<div class="col-md-3 mb-1">
-									<label for="fecha">Fecha</label> <input type="text"
+									<label for="fecha">Fecha</label> <input type="date"
 										class="form-control" th:field="*{fecha}"
 										placeholder="dia-mes-año"
 										th:errorclass="'form-control alert-danger'"> <small
@@ -104,8 +104,8 @@
 
 
 
-							<a class="btn btn-warning btn-xs mt-4" th:href="@{'/listmaquina/'}"
-								th:text="'&laquo; Regresar'"></a>
+							<a class="btn btn-warning btn-xs mt-4"
+								th:href="@{'/listmaquina/'}" th:text="'&laquo; Regresar'"></a>
 							<button class="btn btn-primary mt-4" type="submit">Guardar</button>
 							<!-- // Mio -->
 

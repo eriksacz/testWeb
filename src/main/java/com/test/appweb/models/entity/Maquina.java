@@ -18,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "maquinas")
@@ -41,7 +42,7 @@ public class Maquina implements Serializable {
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date fecha;
 
 	@OneToMany(mappedBy = "maquina", fetch = FetchType.LAZY)
