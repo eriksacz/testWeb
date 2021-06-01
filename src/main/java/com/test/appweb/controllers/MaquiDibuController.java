@@ -44,6 +44,7 @@ public class MaquiDibuController {
 		public String crarcontentClient(Model model) {
 		 
 			MaquiDibu maquiDibu = new MaquiDibu();
+			maquiDibu.setActivo((long) 1);
 
 			model.addAttribute("maquiDibu", maquiDibu);
 			model.addAttribute("dibujos", dibujoService.findAll());
